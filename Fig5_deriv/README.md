@@ -20,3 +20,5 @@
 
 <img src="https://cdn.mathpix.com/snip/images/upy0Qko5EfVRDb8Ab7GavynHwZMhS5T5fywrybI6tvY.original.fullsize.png" width="340px">
 
+ - Fig5_deriv06.m: more related to duct mode detction same as experimets？ Possible？
+ 
