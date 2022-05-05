@@ -51,7 +51,7 @@ scatter3(sensor.z,sensor.x,sensor.y,'o','filled','MarkerEdgeColor',[0 .5 .5],...
 
 %% Mode Generator
 c = 343;               % sound speed
-m = [1:5];              % circumferential modes maker
+m = [-5:5];              % circumferential modes maker
 n = [1:6];
 w = 5;                 % Non-dimensional frequency
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
@@ -62,8 +62,8 @@ Eig = sqrt(w^2-Base.jmn_pm.^2) %Rienstra-52
 
 %% Left runing modes with amplitude A_mn / right running modes B_mn
 % for simulation, it opens an "Interface" modified by yourself
-A_mn= rand(length(n),length(m)); A_mn= A_mn+i*rand(length(n),length(m));   
-B_mn= rand(length(n),length(m)); B_mn= B_mn+i*rand(length(n),length(m)); 
+A_mn= rand(length(n),length(m))*2-1; A_mn= A_mn+i*(rand(length(n),length(m))*2-1);   
+B_mn= rand(length(n),length(m))*2-1; B_mn= B_mn+i*(rand(length(n),length(m))*2-1); 
 % A_mn=[
 % 0.117565484621756 + 0.467410026774460i
 % 0.147817414181606 + 0.656694003304474i
@@ -127,7 +127,7 @@ for km=1:length(m)
         pm{kn,km} =(A_mn(kn,km).*exp(-i*  Eig(n(kn),km)   *sensor.z0)+ ...
                     B_mn(kn,km).*exp(-i* (-Eig(n(kn),km)) *sensor.z0)).*...
                     U_r{kn,km}*exp(-i*m(km)*sensor.theta.'); % Rienstra-57a
-        um{kn,km} =(Eig(n(kn),km) * A_mn(kn,km).*exp(-i*  Eig(n(kn),km)   *sensor.z0)+...
+        um{kn,km} =(Eig(n(kn),km) * A_mn(kn,km).*exp(-i*   Eig(n(kn),km)   *sensor.z0)+...
                    (Eig(n(kn),km))* B_mn(kn,km).*exp(-i* (-Eig(n(kn),km) )*sensor.z0)).*...
                     U_r{kn,km}*exp(-i*m(km)*sensor.theta.')/w; % Rienstra-57b
 
