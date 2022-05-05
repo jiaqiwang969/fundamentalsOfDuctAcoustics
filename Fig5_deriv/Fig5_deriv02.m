@@ -61,7 +61,7 @@ Eig = sqrt(w^2-Base.jmn_pm.^2) %Rienstra-52
 
 
 
-%% Left runing modes with amplitude A_mn / left running modes B_mn
+%% right runing modes with amplitude A_mn / left running modes B_mn
 % for simulation, it opens an "Interface" modified by yourself
 A_mn= rand(length(n),length(m))*2-1; A_mn= A_mn+i*(rand(length(n),length(m))*2-1);   
 B_mn= rand(length(n),length(m))*2-1; B_mn= B_mn+i*(rand(length(n),length(m))*2-1); 
@@ -118,8 +118,7 @@ grid on
 % then adding those modes together
 % use "bsxfun" to speed up instead of by for-loop
 % for no-mean flow wave equation, Eig of right/left modes are \pm 
-% Our aim is to reconstruct the virtual sensor singanl 
-% this we are not plotting cut plane again
+
 
 % First, reproduce the solution of wave equation: %Rienstra-56(Normalized version)
 for km=1:length(m)
