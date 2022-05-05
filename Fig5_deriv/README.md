@@ -24,4 +24,6 @@
  
 <img src="https://cdn.mathpix.com/snip/images/E4TzasLgU3K-1MpaUUcGYMYcJ3CwmS8fIwyKE9l9I6k.original.fullsize.png" width="340px">
 
-- Fig5_deriv07.m: Assume the amplitudes of this modes is random at first, so what?
+- Fig5_deriv07.m: Assume the amplitudes of this modes is random at first, so what? Please think about it, when w=20, which level of "m" at least is cut off? 
+
+  Answer: This derives the cut-off boundary of the duct modes related to "m". So can we plot it?
