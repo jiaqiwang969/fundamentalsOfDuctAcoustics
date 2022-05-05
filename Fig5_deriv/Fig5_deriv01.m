@@ -1,5 +1,5 @@
 % Fig5_deriv01.m
-% Aim: restruct time signals for visual sensors
+% Aim: reconstruct single duct mode
 % 2021-05-05 wjq
 
 clc

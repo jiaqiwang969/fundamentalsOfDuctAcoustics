@@ -14,7 +14,13 @@ end
 % repmat((-1).^m,n,1)
 % Base.jmn_pm=[fliplr(jmn) jmn(:,2:end)];
 % BesselValue_pm=[fliplr(repmat((-1).^m0,n,1).*BesselValue) BesselValue(:,2:end)];
-
+% this is for project:https://github.com/jiaqiwang969/NonlinearDuctAcoustics
 % Base.Cmn1=bsxfun(@times,(sqrt(-1)).^m./(sqrt(pi)*BesselValue_pm.*sqrt(1-m.^2./Base.jmn_pm.^2)),reshape(1./h,1,1,[]));%£¨Jiaqi-Note1-134£©4*11*50
+
+% Normalized factor N_mn by Rienstra-56
+Base.normValue = bsxfun(@times,sqrt(2)./(BesselValue_pm.*sqrt(1-m.^2./Base.jmn_pm.^2)),reshape(1./h,1,1,[]));
+% the N_{0,1} has been considered~ using trick of "+0.00001" above
+
+
 
 end
