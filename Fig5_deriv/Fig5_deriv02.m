@@ -1,4 +1,4 @@
-% Fig5_deriv01.m
+% Fig5_deriv02.m
 % Aim: reconstruct several modes
 % Ref: Rienstra-(57a-57b)
 % 2021-05-05 wjq
