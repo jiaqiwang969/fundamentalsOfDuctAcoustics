@@ -6,4 +6,7 @@
 
 
 - Fig5_deriv02.m: reconstruct several modes
-- <img src="https://cdn.mathpix.com/snip/images/KbsQ8HWF-WHqnBqArVxMUZRoDyS9RvL_w40SMxk7ZtE.original.fullsize.png" width="340px">
+ <img src="https://cdn.mathpix.com/snip/images/KbsQ8HWF-WHqnBqArVxMUZRoDyS9RvL_w40SMxk7ZtE.original.fullsize.png" width="340px">
+
+
+- Fig5_deriv03.m: Fig 07 prove? 
