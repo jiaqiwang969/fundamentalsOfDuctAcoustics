@@ -6,6 +6,7 @@
 % step1: normalise the modes first.
 % step2: add the modes together. 
 
+
 clc
 clear
 close all
@@ -17,7 +18,7 @@ addpath(genpath('../subfunction'));
 
 %% Sensor Positions
 N = 100;
-sensor.z0 = 0.8;
+sensor.z0 = 8;
 sensor.z = sensor.z0*ones(N,1);  % 
 sensor.rho = ones(N,1); % all sensor in the wall
 sensor.theta = 2*pi/N*[1:N].';
@@ -52,7 +53,7 @@ scatter3(sensor.z,sensor.x,sensor.y,'o','filled','MarkerEdgeColor',[0 .5 .5],...
 %% Mode Generator
 c = 343;               % sound speed
 m = [-5:5];              % circumferential modes maker
-n = [1:6];
+n = [1];
 w = 5;                 % Non-dimensional frequency
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
 [Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
@@ -60,7 +61,7 @@ Eig = sqrt(w^2-Base.jmn_pm.^2) %Rienstra-52
 
 
 
-%% Left runing modes with amplitude A_mn / right running modes B_mn
+%% Left runing modes with amplitude A_mn / left running modes B_mn
 % for simulation, it opens an "Interface" modified by yourself
 A_mn= rand(length(n),length(m))*2-1; A_mn= A_mn+i*(rand(length(n),length(m))*2-1);   
 B_mn= rand(length(n),length(m))*2-1; B_mn= B_mn+i*(rand(length(n),length(m))*2-1); 
@@ -90,7 +91,7 @@ for j=1:length(hb)
     zdata=get(hb(j),'Zdata');
     set(hb(j),'Cdata',zdata)
 end
-title("left runing") 
+title("right runing") 
 colormap("Parula");  
 colorbar  
 % set(gca,'XTickLabel',{'0.1',' ','0.3',' ','0.5',' ','0.7',' ','0.9'},...
@@ -104,7 +105,7 @@ for j=1:length(hb)
     zdata=get(hb(j),'Zdata');
     set(hb(j),'Cdata',zdata)
 end
-title("right runing") 
+title("left runing") 
 colormap("Parula");  
 colorbar  
 % set(gca,'XTickLabel',{'0.1',' ','0.3',' ','0.5',' ','0.7',' ','0.9'},...
@@ -116,7 +117,7 @@ grid on
 
 % then adding those modes together
 % use "bsxfun" to speed up instead of by for-loop
-% for no-mean flow wave equation, Eig of left/right modes are \pm 
+% for no-mean flow wave equation, Eig of right/left modes are \pm 
 % Our aim is to reconstruct the virtual sensor singanl 
 % this we are not plotting cut plane again
 

@@ -5,7 +5,7 @@ function [Base]=BaseJ1(m,n,h)
 % m>=0
 
 for k=1:length(m)
-    temp1=roots(diff(chebfun(@(t) besselj(sign(m(k)).*m(k),t),[0,300]))+0.00001);
+    temp1=roots(diff(chebfun(@(t) besselj(sign(m(k)).*m(k),t),[0,600]))+0.00001);
     temp2= sign(m(k)).^(sign(m(k)).*m(k))* besselj(sign(m(k)).*m(k),temp1);
     Base.jmn_pm(:,k)=temp1(1:n);
     BesselValue_pm(:,k)=temp2(1:n);
