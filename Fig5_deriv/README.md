@@ -15,5 +15,5 @@
  - Fig5_deriv04.m: Does green function is possible to plot? with solid wall.
    Not really sure, code is here, to be vertifying...
    
- - Fig5_deriv05.m: fig14 prove?
+ - Fig5_deriv05.m: fig8 prove?
 
