@@ -23,3 +23,5 @@
  - Fig5_deriv06.m: fig8 extends to 3D, which includes "n" in z-axis, all this mode add together is reall word!
  
 <img src="https://cdn.mathpix.com/snip/images/E4TzasLgU3K-1MpaUUcGYMYcJ3CwmS8fIwyKE9l9I6k.original.fullsize.png" width="340px">
+
+- Fig5_deriv07.m: Assume the amplitudes of this modes is random at first, so what?
