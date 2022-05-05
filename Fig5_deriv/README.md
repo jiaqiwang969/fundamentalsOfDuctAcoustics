@@ -13,4 +13,10 @@
  <img src="https://cdn.mathpix.com/snip/images/B4uI1LCB_8HkSKWrftj3-hNinE_G6XitbQcaCOqSiS8.original.fullsize.png" width="340px">
  
  - Fig5_deriv04.m: Does green function is possible to plot? with solid wall.
+ 
+   Not really sure, code is here, to be vertifying...
+   
+ - Fig5_deriv05.m: fig8 prove?
+
+<img src="https://cdn.mathpix.com/snip/images/upy0Qko5EfVRDb8Ab7GavynHwZMhS5T5fywrybI6tvY.original.fullsize.png" width="340px">
 
