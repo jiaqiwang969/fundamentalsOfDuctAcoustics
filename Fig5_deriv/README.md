@@ -29,4 +29,4 @@
   Answer: This derives the cut-off boundary of the duct modes related to "m". So can we plot it?
 <img src="https://cdn.mathpix.com/snip/images/F7-GGLUARejYqMu7StndYSgUOavKQp2DAVR90YNnwQw.original.fullsize.png" width="1040px" height="340px">
 
-   <img src="https://cdn.mathpix.com/snip/images/NIQzwduMnV2r7sTSPvBIwi0Oy1pv3y0enY68T35-OtU.original.fullsize.png" width="970px" height="380px">
+ x<img src="https://cdn.mathpix.com/snip/images/NIQzwduMnV2r7sTSPvBIwi0Oy1pv3y0enY68T35-OtU.original.fullsize.png" width="965px" height="380px">
