@@ -6,6 +6,7 @@
 
 
 - Fig5_deriv02.m: reconstruct several modes
-1. normalise the modes first. 
-2. add the modes together. Rienstra-(57a-57b)
+ <img src="https://cdn.mathpix.com/snip/images/KbsQ8HWF-WHqnBqArVxMUZRoDyS9RvL_w40SMxk7ZtE.original.fullsize.png" width="340px">
 
+
+- Fig5_deriv03.m: Fig 07 prove? 
