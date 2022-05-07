@@ -39,10 +39,13 @@
 - Fig5_deriv07.m: Assume the amplitudes of this modes is random at first, so what? Please think about it, when w=20, which level of "m" at least is cut off? 
 
   Answer: This derives the cut-off boundary of the duct modes related to "m". So can we plot it?
-<img src="https://cdn.mathpix.com/snip/images/F7-GGLUARejYqMu7StndYSgUOavKQp2DAVR90YNnwQw.original.fullsize.png" width="1040px" height="340px">
+<!-- <img src="https://cdn.mathpix.com/snip/images/F7-GGLUARejYqMu7StndYSgUOavKQp2DAVR90YNnwQw.original.fullsize.png" width="1040px" height="340px"> -->
+<img src="https://cdn.mathpix.com/snip/images/LbCY0kiyZ83jh39DAphqoGRzr7_9EV7ehM3us0ATZvQ.original.fullsize.png"  width="640px">
 
- x<img src="https://cdn.mathpix.com/snip/images/NIQzwduMnV2r7sTSPvBIwi0Oy1pv3y0enY68T35-OtU.original.fullsize.png" width="965px" height="380px">
 
+<!--  x<img src="https://cdn.mathpix.com/snip/images/NIQzwduMnV2r7sTSPvBIwi0Oy1pv3y0enY68T35-OtU.original.fullsize.png" width="965px" height="380px">
+ -->
+<img src="https://cdn.mathpix.com/snip/images/1-8xsj8IBFTSpWCP0CxxxN6jrKk-5sQYy8IiFjQ6OGQ.original.fullsize.png" width="640px">
 How to Apply it in experiment? Aim: seprator the effect of propagation and source!
 
 <img src="https://cdn.mathpix.com/snip/images/IAKHqKXxvfGm1AQIPDPOfGbXNu9Wbrd3eRqSyxiAWqg.original.fullsize.png" width="640px">
