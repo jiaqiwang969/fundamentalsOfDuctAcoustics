@@ -24,37 +24,66 @@ sensor.theta = 2*pi/N*[1:N].';
 [sensor.x,sensor.y,sensor.z] = pol2cart(sensor.theta,sensor.rho,sensor.z);
 
 %% Plot Duct Surface
-rT = 1;h = 10;
+% real experimenatl data 
+
+rT = 0.185;h = 10;
 [Xs,Ys,Zs] = cylinder(rT);
 Zs = Zs*h;
 
 %% Mode Generator
 c = 343;               % sound speed
-m = [0:17];              % circumferential modes maker
+m = [-100:100];              % circumferential modes maker
 n = [1];
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
 [Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
 
-w=linspace(0,20,10000);
+w=linspace(0,42.0222,10000);
 for k=1:length(w)
-    Eig(k,:) = real(sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
+    Eig(k,:) = (sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
 end
 
 
-mm,ww'=meshgrid(m,w)
+frequency=w*c/(2*pi*rT);
 
 
-figure
-for k=1:length(m)
-   scatter(w,Eig(:,k),'.');
-   hold on 
-end
-ylabel({'Re(k_{m1})'});
-xlabel({'w'});
-title({'Figure-08'});
-annotation('textbox',...
-    [0.292857142857142 0.552380952380954 0.212946428571429 0.0547619047619048],...
-    'String',{'Cut-on right running'});
+
+[mm,ww]=meshgrid(m,frequency);
+
+% figure
+z0=0.4;
+amf=imag(exp(i.*Eig*z0));
+% offset = 0.05; cont = 22; % contour setting
+% % s1 = subplot(2,2,1); 
+% contour(mm,ww,abs(exp(i.*Eig*z0)),cont); ...
+%     axis('square'); xlabel('m'); ylabel('f/hz', 'FontSize', 10);
+% title("mode decomposition-what we see with experimental data") 
+% grid on
+
+
+
+h=figure('Visible', 'on'); set(gcf,'outerposition',get(0,'screensize'));
+subplot(2,1,1)
+axes1 = axes('Parent',h);
+imagesc(m,frequency,amf);
+ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
+title(['截止模态分析',' -CPSD method '])
+colormap(jet);colorbar('peer',axes1);
+testTime='试验17-2019-11-11';
+title(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
+set(axes1,'FontSize',14,'Layer','top');
+
+subplot(2,1,2)
+axes1 = axes('Parent',h);
+imagesc(m,frequency,amf);
+ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
+title(['截止模态分析',' -CPSD method '])
+colormap(jet);colorbar('peer',axes1);
+testTime='试验17-2019-11-11';
+title(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
+set(axes1,'FontSize',14,'Layer','top');
+
 
 
 

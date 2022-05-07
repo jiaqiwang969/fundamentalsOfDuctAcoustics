@@ -37,9 +37,9 @@ n = [1];
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
 [Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
 
-w=linspace(0,40.6667,10000);
+w=linspace(0,42.0222,10000);
 for k=1:length(w)
-    Eig(k,:) = real(sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
+    Eig(k,:) = (sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
 end
 
 
@@ -49,11 +49,34 @@ frequency=w*c/(2*pi*rT);
 
 [mm,ww]=meshgrid(m,frequency);
 
-figure
-offset = 0.05; cont = 22; % contour setting
-% s1 = subplot(2,2,1); 
-contour(mm,ww,Eig,cont); ...
-    axis('square'); xlabel('m'); ylabel('f/hz', 'FontSize', 10);
-title("mode decomposition-what we see with experimental data") 
+% figure
+z0=0.4;
+amf=(exp(i.*Eig*z0));
+% offset = 0.05; cont = 22; % contour setting
+% % s1 = subplot(2,2,1); 
+% contour(mm,ww,abs(exp(i.*Eig*z0)),cont); ...
+%     axis('square'); xlabel('m'); ylabel('f/hz', 'FontSize', 10);
+% title("mode decomposition-what we see with experimental data") 
+% grid on
 
-gird on
+
+
+figure
+subplot(2,1,1)
+imagesc(m,frequency,real(amf));
+ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
+colormap(jet);
+sgtitle(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+title('real','FontSize',14)
+xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
+
+subplot(2,1,2)
+imagesc(m,frequency,imag(amf));
+ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
+colormap(jet);
+title('imag','FontSize',14)
+xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
+
+
+
+
