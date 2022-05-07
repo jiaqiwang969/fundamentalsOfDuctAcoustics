@@ -16,13 +16,12 @@ end
 theta=0.87/3*pi %校准相位
 a_mf_norm=a_mf./mean(abs(a_mf),2)*exp(i*theta);
 scale=20;
-a_mf_norm(find(abs(a_mf_norm)>scale))=scale;
+%za_mf_norm(find(abs(a_mf_norm)>scale))=scale;
 
 
 m=[-nk_enlarge/2:nk_enlarge/2];
 frequency=Sig.freq(1:15500);
-amf=a_mf_norm(1:15500,:);
-
+amf=10*log10(abs(a_mf_norm(1:15500,:)))/4e-10;
 % 
 % a_mf1=a_mf_norm;
 % figure

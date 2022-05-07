@@ -1,8 +1,8 @@
 % Fig5_deriv05.m
-% Aim: uniform mean flow
-% Ref: Rienstra-section 5
-% 2021-05-08 wjq
-% derived from Fig5_deriv07.m
+% Aim: reconstruct several modes
+% Ref: Rienstra-(8)
+% 2021-05-05 wjq
+% derived from Fig5_deriv02.m
 
 
 
@@ -32,17 +32,18 @@ Zs = Zs*h;
 
 %% Mode Generator
 c = 343;               % sound speed
-m = [-100:100];        % circumferential modes maker
+m = [-100:100];              % circumferential modes maker
 n = [1];
-M = 0.1;               % mean flow in the duct
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
 [Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
+M=0.2; %mean flow
+beta=sqrt(1-M^2);
 
-beta = sqrt(1-M^2);    % Rienstra-83
 w=linspace(0,42.0222,10000);
 for k=1:length(w)
-    Eigp(k,:) = (-w(k)*M + sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; % Rienstra-83-right running
-    Eigm(k,:) = (-w(k)*M - sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; % Rienstra-83-left running
+        %Eig(k,:) = (sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
+        Eigp(k,:)=(-w(k)*M+sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; %Rienstra-83
+        Eigm(k,:)=(-w(k)*M-sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; %Rienstra-83
 
 end
 
@@ -54,8 +55,10 @@ frequency=w*c/(2*pi*rT);
 [mm,ww]=meshgrid(m,frequency);
 
 % figure
-z0=0.4;
-amf=(exp(i.*Eig*z0));
+z0=0.2;
+amfp=(exp(i.*Eigp*z0));
+amfm=(exp(i.*Eigm*z0));
+
 % offset = 0.05; cont = 22; % contour setting
 % % s1 = subplot(2,2,1); 
 % contour(mm,ww,abs(exp(i.*Eig*z0)),cont); ...
@@ -66,16 +69,23 @@ amf=(exp(i.*Eig*z0));
 
 
 figure
-subplot(2,1,1)
-imagesc(m,frequency,real(amf));
+subplot(3,1,1)
+imagesc(m,frequency,real(amfp));
 ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
 colormap(jet);
-sgtitle(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+sgtitle(['ductMode-z0=',num2str(z0),'-r=',num2str(rT),'-M=',num2str(M)],'FontSize',14)
 title('real','FontSize',14)
 xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
 
-subplot(2,1,2)
-imagesc(m,frequency,imag(amf));
+subplot(3,1,2)
+imagesc(m,frequency,imag(amfp));
+ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
+colormap(jet);
+title('imag','FontSize',14)
+xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
+
+subplot(3,1,3)
+imagesc(m,frequency,abs(amfp));
 ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
 colormap(jet);
 title('imag','FontSize',14)

@@ -1,8 +1,8 @@
 % Fig5_deriv05.m
-% Aim: reconstruct several modes
-% Ref: Rienstra-(8)
-% 2021-05-05 wjq
-% derived from Fig5_deriv02.m
+% Aim: uniform mean flow
+% Ref: Rienstra-section 5
+% 2021-05-08 wjq
+% derived from Fig5_deriv07.m
 
 
 
@@ -32,14 +32,18 @@ Zs = Zs*h;
 
 %% Mode Generator
 c = 343;               % sound speed
-m = [-100:100];              % circumferential modes maker
+m = [-100:100];        % circumferential modes maker
 n = [1];
+M = 0.1;               % mean flow in the duct
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
 [Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
 
+beta = sqrt(1-M^2);    % Rienstra-83
 w=linspace(0,42.0222,10000);
 for k=1:length(w)
-    Eig(k,:) = (sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
+    Eigp(k,:) = (sqrt(w(k)^2-beta^2*Base.jmn_pm.^2)); % Rienstra-52
+    Eigm(k,:) = (sqrt(w(k)^2-beta^2*Base.jmn_pm.^2)); % Rienstra-52
+
 end
 
 
@@ -51,7 +55,7 @@ frequency=w*c/(2*pi*rT);
 
 % figure
 z0=0.4;
-amf=imag(exp(i.*Eig*z0));
+amf=(exp(i.*Eig*z0));
 % offset = 0.05; cont = 22; % contour setting
 % % s1 = subplot(2,2,1); 
 % contour(mm,ww,abs(exp(i.*Eig*z0)),cont); ...
@@ -61,28 +65,21 @@ amf=imag(exp(i.*Eig*z0));
 
 
 
-h=figure('Visible', 'on'); set(gcf,'outerposition',get(0,'screensize'));
+figure
 subplot(2,1,1)
-axes1 = axes('Parent',h);
-imagesc(m,frequency,amf);
+imagesc(m,frequency,real(amf));
 ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
-title(['截止模态分析',' -CPSD method '])
-colormap(jet);colorbar('peer',axes1);
-testTime='试验17-2019-11-11';
-title(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+colormap(jet);
+sgtitle(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+title('real','FontSize',14)
 xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
-set(axes1,'FontSize',14,'Layer','top');
 
 subplot(2,1,2)
-axes1 = axes('Parent',h);
-imagesc(m,frequency,amf);
+imagesc(m,frequency,imag(amf));
 ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
-title(['截止模态分析',' -CPSD method '])
-colormap(jet);colorbar('peer',axes1);
-testTime='试验17-2019-11-11';
-title(['ductMode-z0=',num2str(z0),'-r=',num2str(rT)],'FontSize',14)
+colormap(jet);
+title('imag','FontSize',14)
 xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
-set(axes1,'FontSize',14,'Layer','top');
 
 
 
