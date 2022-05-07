@@ -46,3 +46,5 @@
 How to Apply it in experiment? Aim: seprator the effect of propagation and source!
 
 <img src="https://cdn.mathpix.com/snip/images/IAKHqKXxvfGm1AQIPDPOfGbXNu9Wbrd3eRqSyxiAWqg.original.fullsize.png" width="640px">
+
+Step1: recontruct a propagator: assume all modes' amplitudes is same at z=0; we consider the source in the right, propagting to left with infinite duct, thus only care about left running modes.  
