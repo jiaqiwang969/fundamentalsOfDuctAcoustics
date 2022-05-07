@@ -44,3 +44,5 @@
  x<img src="https://cdn.mathpix.com/snip/images/NIQzwduMnV2r7sTSPvBIwi0Oy1pv3y0enY68T35-OtU.original.fullsize.png" width="965px" height="380px">
 
 How to Apply it in experiment?
+
+<img src="https://cdn.mathpix.com/snip/images/-uQWYVQyw6RpedSRKvn9oa_TrbLsdfPLeW8uk_Pg_fI.original.fullsize.png" width="640px">
