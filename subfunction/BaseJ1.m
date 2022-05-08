@@ -1,5 +1,5 @@
 function [Base]=BaseJ1(m,n,h)
-
+h=1; %TODO:bug
 %% use +m to generate -m
 % m0=m((length(m)+1)/2:end);
 % m>=0
