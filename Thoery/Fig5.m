@@ -36,4 +36,6 @@ ylim([-15 15])
 % frequency*2*pi*rT/c
 
 
+theta = chebfun('theta',[0,2*pi]);
+
 
