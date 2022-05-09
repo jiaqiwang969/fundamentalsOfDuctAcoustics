@@ -35,11 +35,11 @@ c = 343;               % sound speed
 m = [-100:100];              % circumferential modes maker
 n = [1];
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
-[Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
+[Base] = BaseJ1(m,n(end),1);  %Rienstra-50, at Least n-radialModes calculated
 
 w=linspace(0,42.0222,10000);
 for k=1:length(w)
-    Eig(k,:) = real(sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
+    Eig(k,:) = real(sqrt(w(k)^2-Base.jmn_pm.^2))/rT; %Rienstra-52
 end
 
 

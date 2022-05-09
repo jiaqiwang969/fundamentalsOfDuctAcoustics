@@ -30,14 +30,14 @@ Zs = Zs*h;
 
 %% Mode Generator
 c = 343;               % sound speed
-m = [0:17];              % circumferential modes maker
+m = [0:20];              % circumferential modes maker
 n = [1:7];
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
-[Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
+[Base] = BaseJ1(m,n(end),1);  %Rienstra-50, at Least n-radialModes calculated
 M=0.5; %mean flow
 beta=sqrt(1-M^2);
 
-w=linspace(0,20,1000);
+w=linspace(0,20,10000);
 
 
 figure
@@ -45,8 +45,8 @@ hold on
 for kn=1:length(n)
     for k=1:length(w)
         %Eig(k,:) = real(sqrt(w(k)^2-Base.jmn_pm(n(kn),:).^2)); %Rienstra-52
-        Eigp(k,:)=(-w(k)*M+sqrt(w(k)^2-beta^2*Base.jmn_pm(n(kn),:).^2))/beta^2; %Rienstra-83
-        Eigm(k,:)=(-w(k)*M-sqrt(w(k)^2-beta^2*Base.jmn_pm(n(kn),:).^2))/beta^2; %Rienstra-83
+        Eigp(k,:)=(-w(k)*M+sqrt(w(k)^2-beta^2*Base.jmn_pm(n(kn),:).^2))/beta^2/rT; %Rienstra-83
+        Eigm(k,:)=(-w(k)*M-sqrt(w(k)^2-beta^2*Base.jmn_pm(n(kn),:).^2))/beta^2/rT; %Rienstra-83
     end
 
     for k=1:length(m)
@@ -58,12 +58,14 @@ for kn=1:length(n)
     end
 end
 
-ylabel({'Re(k_{m1})'});
-xlabel({'w'});
+ylabel({'Re(k_{m1})'},'FontSize', 30);
+xlabel({'w'},'FontSize', 30);
+zlabel({'n'},'FontSize', 30);
 title({'Figure-14-derived'});
 % annotation('textbox',...
 %     [0.292857142857142 0.552380952380954 0.212946428571429 0.0547619047619048],...
 %     'String',{'Cut-on right running'});
 
-
+grid on
+grid minor
 

@@ -35,15 +35,15 @@ c = 343;               % sound speed
 m = [-100:100];              % circumferential modes maker
 n = [1];
 % f=[1000];            % physical frequency %f*2*pi*rT/c-0.0000000001*i;
-[Base] = BaseJ1(m,n(end),rT);  %Rienstra-50, at Least n-radialModes calculated
+[Base] = BaseJ1(m,n(end),1);  %Rienstra-50, at Least n-radialModes calculated
 M=0.2; %mean flow
 beta=sqrt(1-M^2);
 
 w=linspace(0,42.0222,10000);
 for k=1:length(w)
         %Eig(k,:) = (sqrt(w(k)^2-Base.jmn_pm.^2)); %Rienstra-52
-        Eigp(k,:)=(-w(k)*M+sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; %Rienstra-83
-        Eigm(k,:)=(-w(k)*M-sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; %Rienstra-83
+        Eigp(k,:)=(-w(k)*M+sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2/rT; %Rienstra-83
+        Eigm(k,:)=(-w(k)*M-sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2/rT; %Rienstra-83
 
 end
 
@@ -88,7 +88,7 @@ subplot(3,1,3)
 imagesc(m,frequency,abs(amfp));
 ylim([1,8000/60*29*3.2]); axis xy;xlim([-100,100]);
 colormap(jet);
-title('imag','FontSize',14)
+title('abs','FontSize',14)
 xlabel('Mode Number：m','FontSize',16);ylabel('Frequency (Hz)','FontSize',16);
 
 

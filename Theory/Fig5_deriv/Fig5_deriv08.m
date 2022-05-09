@@ -41,7 +41,7 @@ frequency=Sig.freq(1:15500);
 w=frequency*2*pi*rT/c;%-0.0000000001*i;
 
 for k=1:length(w)
-    Eig(k,:) = sqrt(w(k)^2-(Base.jmn_pm).^2)*rT; %Rienstra-52
+    Eig(k,:) = sqrt(w(k)^2-(Base.jmn_pm).^2)/rT; %Rienstra-52
 %     Eigp(k,:) = (-w(k)*M + sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; % Rienstra-83-right running
 %     Eigm(k,:) = (-w(k)*M - sqrt(w(k)^2-beta^2*Base.jmn_pm.^2))/beta^2; % Rienstra-83-left running
 end
