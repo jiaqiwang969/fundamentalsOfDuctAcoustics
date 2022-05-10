@@ -44,16 +44,15 @@ rT = 0.3                            %duct Radius
 c=343;
 m=[-7:7];                       %circumferential modes
 Wave.k=frequency*2*pi*rT/c; %+-;  %Non-dimensional frequency
-figure;
+n=[1:6]
 
 
+[Base] = BaseJ1(m,n(end));   %Rienstra-50, at Least n-radialModes calculated
+beta=sqrt(1-Mx^2);
+Eig1=(-w*Mx-sqrt(w^2-beta^2*Base.jmn_pm.^2))/beta^2; %k+
+Eig2=(-w*Mx+sqrt(w^2-beta^2*Base.jmn_pm.^2))/beta^2; %k-
+Nmn2=(1-m^2/(Base.jmn_pm*rT)^2)*abs(besselj(sign(m(km)).*m(km),Base.jmn_pm(n(kn))*rT))^2;
 
-for n=[1]                  %radial modes
-    [Base]=BaseJ1(m,n,1);  %Rienstra-50
-    Eig=sqrt(Wave.k^2-Base.jmn_pm.^2)/rT; %Rienstra-52
-    plot(imag(i*Eig),real(i*Eig),'square');hold on
-    plot(-imag(i*Eig),-real(i*Eig),'square');
-end
 
 
 %保证ref在同一位置，对三排分别做周向模态分解

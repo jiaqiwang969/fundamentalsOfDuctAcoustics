@@ -1,5 +1,4 @@
-function [Base]=BaseJ1(m,n,h)
-h=1; %TODO:bug
+function [Base]=BaseJ1(m,n)
 %% use +m to generate -m
 % m0=m((length(m)+1)/2:end);
 % m>=0
@@ -18,7 +17,7 @@ end
 % Base.Cmn1=bsxfun(@times,(sqrt(-1)).^m./(sqrt(pi)*BesselValue_pm.*sqrt(1-m.^2./Base.jmn_pm.^2)),reshape(1./h,1,1,[]));%£¨Jiaqi-Note1-134£©4*11*50
 
 % Normalized factor N_mn by Rienstra-56
-Base.normValue = bsxfun(@times,sqrt(2)./(BesselValue_pm.*sqrt(1-m.^2./Base.jmn_pm.^2)),reshape(1./h,1,1,[]));
+%Base.normValue = bsxfun(@times,sqrt(2)./(BesselValue_pm.*sqrt(1-m.^2./Base.jmn_pm.^2)),reshape(1,1,1,[]));
 % the N_{0,1} has been considered~ using trick of "+0.00001" above
 
 
