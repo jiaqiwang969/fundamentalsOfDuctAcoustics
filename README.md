@@ -14,7 +14,8 @@
 
 - Fig5_deriv01.m: reconstruct single duct mode
 
-<img src="https://github.com/jiaqiwang969/fundamentalsOfDuctAcoustics/blob/main/results/01-modeEx.png" width="640px">
+<img src="https://github.com/jiaqiwang969/fundamentalsOfDuctAcoustics/blob/main/01-code/results/01-modeEx.png" width="640px">
+
 
 
 - Fig5_deriv02.m: reconstruct several modes
